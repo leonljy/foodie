@@ -49,13 +49,10 @@
     
     
     [MMXUser logInWithCredential:credential success:^(MMXUser *user) {
-        
+
     } failure:^(NSError *error) {
         
     }];
-    
-    _currentUser = [MMXUser currentUser];
-
     return YES;
 }
 

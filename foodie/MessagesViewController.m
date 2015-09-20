@@ -22,6 +22,9 @@
 #import "QuickStartUtils.h"
 #import "UIColor+QuickStart.h"
 #import <MMX/MMX.h>
+#import "AppDelegate.h"
+
+
 @interface MessagesViewController ()
 
 @property (nonatomic, copy) NSArray * messageList;
@@ -95,37 +98,13 @@ NSString * const kTextContent = @"textContent";
 
 
 - (void)setupClient {
-
-	//Creating a new NSURLCredential
-	self.currentCredential = [NSURLCredential credentialWithUser:kDefaultUsername password:kDefaultUsername persistence:NSURLCredentialPersistenceNone];
-	MMXUser *user = [MMXUser new];
-	user.username = kDefaultUsername;
-    user.displayName = kDefaultUsername;
-    
-	[user registerWithCredential:self.currentCredential success:^{
-		[self logIn];
-	} failure:^(NSError *error) {
-		if (error.code == 409) {
-			//Already registered
-			[self logIn];
-		}
-	}];
+    [self logIn];
 }
 
 - (void)logIn {
-	if (self.currentCredential != nil) {
-		[MMXUser logInWithCredential:self.currentCredential success:^(MMXUser *user) {
-			self.currentRecipient = [self me];
-			// Indicate that you are ready to receive messages now!
-			[MMX start];
+    self.currentRecipient = [MMXUser currentUser];
+    self.textInputbar.textView.text = @"Hello, let's eat lunch together.";
 
-//			[self showAlertWithTitle:@"Logged In" message:[NSString stringWithFormat:@"You are logged in as %@.\n\nTry sending a message below.",kDefaultUsername]];
-            self.textInputbar.textView.text = @"Hello World";
-		} failure:^(NSError *error) {
-			[self showAlertWithTitle:@"Authentication Failure!" message:@"Something went wrong while trying to authenticate. Please check your server settings and configuration then try again."];
-			NSLog(@"logInWithCredentials Failure = %@",error);
-		}];
-	}
 }
 
 /*
