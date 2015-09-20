@@ -15,6 +15,7 @@
 #import "MyListViewController.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import <Parse/Parse.h>
+#import "IBMServerHelper.h"
 
 #define SEARCH_TERM @"Restaurants";
 
@@ -25,6 +26,7 @@
 @property (strong, nonatomic) NSMutableArray *selectedFoods;
 @property (weak, nonatomic) IBOutlet UILabel *labelBadge;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewBadge;
+@property (strong, nonatomic) NSMutableArray *foodsToDelete;
 @end
 
 @implementation ViewController{
@@ -84,12 +86,45 @@
                 }
                 
                 
+                NSMutableArray *foodCopy = [NSMutableArray arrayWithArray:self.foods];
+                self.foodsToDelete = [NSMutableArray array];
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                    for(Food *food in foodCopy) {
+                        NSString *params = [NSString stringWithFormat:@"url=%@&classifier=Food", [food.imageUrl absoluteString]];
+                        NSData *responseData = [[IBMServerHelper sharedInstance] post:params url:@"http://visual-recognition-nodejs-leonljy-313.mybluemix.net"];
+                        NSError* error;
+                        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                             options:kNilOptions
+                                                                               error:&error];
+                        NSLog(@"%@: %@", food.name, json);
+                        NSDictionary *image = [json[@"images"] firstObject];
+                        NSArray *labels = image[@"labels"];
+                        if(nil==labels){
+                            [self.foodsToDelete addObject:food];
+                        }else{
+                            for(NSDictionary *dic in labels){
+                                if([dic[@"label_name"] isEqualToString:@"food"]){
+                                    if([dic[@"label_score"] doubleValue] < 0.5){
+                                        [self.foodsToDelete addObject:food];
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    for(Food *food in self.foodsToDelete) {
+                        [self.foods removeObject:food];
+                    }
+                    
+                });
+                
                 dispatch_sync(dispatch_get_main_queue(), ^{
                     self.frontCardView = [self popFoodViewWithFrame:[self frontCardViewFrame]];
                     [self.view addSubview:self.frontCardView];
                     
                     self.backCardView = [self popFoodViewWithFrame:[self backCardViewFrame]];
                     [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
+                    
                 });
                 
             }];
