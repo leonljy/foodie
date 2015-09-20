@@ -22,7 +22,7 @@
 @property NSInteger reviewCount;
 @property (strong, nonatomic) NSArray *foods;
 @property CGFloat distance;
-
+@property (strong, nonatomic) NSURL *ratingImage;
 +(Business *)initWithDic:(NSDictionary *)result;
 -(CLLocationDistance)getDistanceWithCurrentLocation:(CLLocation *)location;
 @end

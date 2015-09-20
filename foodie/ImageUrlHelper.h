@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface ImageUrlHelper : NSObject
+typedef void (^CompletionHandler)(NSDictionary *dicFoods);
 + (ImageUrlHelper *)sharedInstance;
--(void)fetchPhotoListsWithBusinesses:(NSArray *)businesses;
+-(void)fetchPhotoListsWithBusinesses:(NSArray *)businesses completionHandler:(CompletionHandler)completionHandler;
 @end
