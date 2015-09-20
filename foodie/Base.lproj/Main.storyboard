@@ -451,6 +451,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="handleGoWithFriends:" destination="nUN-Y4-wm9" eventType="touchUpInside" id="Jsn-a0-eRS"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgLikeCircle" translatesAutoresizingMaskIntoConstraints="NO" id="zl2-V6-sbm">
                                 <rect key="frame" x="266" y="209" width="68" height="68"/>

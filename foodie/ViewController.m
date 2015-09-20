@@ -16,8 +16,8 @@
 #import "UINavigationBar+CustomHeight.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import <Parse/Parse.h>
+#import <MMX.h>
 #import "IBMServerHelper.h"
-
 #define SEARCH_TERM @"Restaurants";
 
 @interface ViewController ()
@@ -71,6 +71,25 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    // Indicate that you are ready to receive messages now!
+    [MMX enableIncomingMessages];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didReceiveMessage:)
+                                                 name:MMXDidReceiveMessageNotification
+                                               object:nil];
+}
+
+- (void)didReceiveMessage:(NSNotification *)notification {
+    MMXMessage *message = notification.userInfo[MMXMessageKey];
+    // Do something with the message
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:(BOOL)animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 -(void)showAnimation{
     if(nil==self.imageViewLogo){

@@ -9,6 +9,7 @@
 #import "DetailViewController.h"
 #import <MapKit/MapKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <MMX/MMX.h>
 
 #define METERS_PER_MILE 1609.344
 
@@ -84,6 +85,20 @@
 
 - (IBAction)handleBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)handleGoWithFriends:(id)sender {
+    [MMXUser findByDisplayName:@"J" limit:20 offset:0 success:^(int totalCount, NSArray *users) {
+        NSLog(@"%@", users);
+        MMXMessage *message = [MMXMessage messageToRecipients:[NSSet setWithArray:users] messageContent:@{@"message": @"Hello"}];
+        [message sendWithSuccess:^{
+            NSLog(@"Success");
+        } failure:^(NSError *error) {
+            NSLog(@"Failure");
+        }];
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 
