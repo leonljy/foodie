@@ -35,6 +35,9 @@
 		91BD9C451BAE246C003D82EF /* OAServiceTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9C2D1BAE246C003D82EF /* OAServiceTicket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		91BD9C461BAE246C003D82EF /* OAToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9C301BAE246C003D82EF /* OAToken.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		91BD9C471BAE246C003D82EF /* OATokenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9C321BAE246C003D82EF /* OATokenManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E5431B991BAE40DA00CC6105 /* ChooseFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431B981BAE40DA00CC6105 /* ChooseFoodView.m */; };
+		E5431B9C1BAE416B00CC6105 /* ImageLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431B9B1BAE416B00CC6105 /* ImageLabelView.m */; };
+		E5431BA01BAE41EA00CC6105 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431B9F1BAE41EA00CC6105 /* Food.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,12 @@
 		91BD9C341BAE246C003D82EF /* YPAPISample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPAPISample.h; sourceTree = "<group>"; };
 		BB8AEC1F6DB5597042DA1B15 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DD7E93940E6978FEBF28E7FA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5431B971BAE40DA00CC6105 /* ChooseFoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseFoodView.h; path = Views/ChooseFoodView.h; sourceTree = "<group>"; };
+		E5431B981BAE40DA00CC6105 /* ChooseFoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseFoodView.m; path = Views/ChooseFoodView.m; sourceTree = "<group>"; };
+		E5431B9A1BAE416B00CC6105 /* ImageLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLabelView.h; sourceTree = "<group>"; };
+		E5431B9B1BAE416B00CC6105 /* ImageLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLabelView.m; sourceTree = "<group>"; };
+		E5431B9E1BAE41EA00CC6105 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Food.h; path = Models/Food.h; sourceTree = "<group>"; };
+		E5431B9F1BAE41EA00CC6105 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Food.m; path = Models/Food.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +181,8 @@
 				91BD9C0C1BAE246C003D82EF /* YPAPISample.m */,
 				91BD9C0D1BAE246C003D82EF /* OAuthConsumer */,
 				91BD9C341BAE246C003D82EF /* YPAPISample.h */,
+				E5431B9D1BAE41D400CC6105 /* Models */,
+				E5431B961BAE408500CC6105 /* Views */,
 				91BD9BA61BAE1728003D82EF /* AppDelegate.h */,
 				91BD9BA71BAE1728003D82EF /* AppDelegate.m */,
 				91BD9BAC1BAE1728003D82EF /* ViewController.h */,
@@ -269,6 +280,26 @@
 				91BD9C1B1BAE246C003D82EF /* sha1.h */,
 			);
 			path = Crytpo;
+			sourceTree = "<group>";
+		};
+		E5431B961BAE408500CC6105 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E5431B9A1BAE416B00CC6105 /* ImageLabelView.h */,
+				E5431B9B1BAE416B00CC6105 /* ImageLabelView.m */,
+				E5431B971BAE40DA00CC6105 /* ChooseFoodView.h */,
+				E5431B981BAE40DA00CC6105 /* ChooseFoodView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E5431B9D1BAE41D400CC6105 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E5431B9E1BAE41EA00CC6105 /* Food.h */,
+				E5431B9F1BAE41EA00CC6105 /* Food.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,8 +450,11 @@
 				91BD9C441BAE246C003D82EF /* OARequestParameter.m in Sources */,
 				91BD9C3B1BAE246C003D82EF /* hmac.c in Sources */,
 				91BD9C461BAE246C003D82EF /* OAToken.m in Sources */,
+				E5431BA01BAE41EA00CC6105 /* Food.m in Sources */,
 				91BD9C371BAE246C003D82EF /* NSMutableURLRequest+Parameters.m in Sources */,
 				91BD9C451BAE246C003D82EF /* OAServiceTicket.m in Sources */,
+				E5431B9C1BAE416B00CC6105 /* ImageLabelView.m in Sources */,
+				E5431B991BAE40DA00CC6105 /* ChooseFoodView.m in Sources */,
 				91BD9C3F1BAE246C003D82EF /* OADataFetcher.m in Sources */,
 				91BD9C431BAE246C003D82EF /* OAProblem.m in Sources */,
 				91BD9C3E1BAE246C003D82EF /* OAConsumer.m in Sources */,

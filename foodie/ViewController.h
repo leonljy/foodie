@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MDCSwipeToChooseDelegate.h>
+#import "ChooseFoodView.h"
+#import "Food.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <MDCSwipeToChooseDelegate>
 
-
+@property (nonatomic, strong) Food *currentFood;
+@property (nonatomic, strong) ChooseFoodView *frontCardView;
+@property (nonatomic, strong) ChooseFoodView *backCardView;
 @end
 
