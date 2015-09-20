@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface Business : NSObject
 @property (strong, nonatomic) NSString *businessId;
@@ -20,6 +21,8 @@
 @property (strong,nonatomic) NSURL *urlMobile;
 @property NSInteger reviewCount;
 @property (strong, nonatomic) NSArray *foods;
+@property CGFloat distance;
 
 +(Business *)initWithDic:(NSDictionary *)result;
+-(CLLocationDistance)getDistanceWithCurrentLocation:(CLLocation *)location;
 @end

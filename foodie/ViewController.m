@@ -13,6 +13,7 @@
 #import "Business.h"
 #import "ImageUrlHelper.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
+#import <Parse/Parse.h>
 
 #define SEARCH_TERM @"Restaurants";
 
@@ -27,17 +28,17 @@
 
 @implementation ViewController{
     BOOL isReceivedLocation;
+    CLLocation *currentLocation;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-//    _foods = [[self defaultFood] mutableCopy];
     isReceivedLocation = NO;
     double latitude = 37.75855227;
     double longitude = -122.38431305;
     CLLocation *location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+    currentLocation = location;
     NSString *term = SEARCH_TERM;
     [self callYelpAPIWithCoreLocation:location term:term];
     
@@ -51,8 +52,6 @@
             NSLog(@"Let go now to delete the photo!");
         }
     };
-    
-    
     self.selectedFoods = [NSMutableArray array];
 
     if (self.selectedFoods.count<1) {
@@ -131,7 +130,7 @@
     _frontCardView = frontCardView;
     self.currentFood = frontCardView.food;
 }
-
+/*
 - (NSArray *)defaultFood {
     return @[
              [[Food alloc] initWithName:@"1" imageUrl:[NSURL URLWithString:@"http://s3-media3.fl.yelpcdn.com/bphoto/Ih1vn0z3B03NpkuXGkDdtg/o.jpg"]],
@@ -142,6 +141,7 @@
              [[Food alloc] initWithName:@"1" imageUrl:[NSURL URLWithString:@"http://s3-media3.fl.yelpcdn.com/bphoto/Ih1vn0z3B03NpkuXGkDdtg/o.jpg"]]
              ];
 }
+ */
 
 
 

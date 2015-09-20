@@ -10,11 +10,12 @@
 
 @implementation Food
 
-- (instancetype)initWithName:(NSString *)name imageUrl:(NSURL *)imageUrl{
+- (instancetype)initWithName:(NSString *)name imageUrl:(NSURL *)imageUrl business:(Business *)business{
     self = [super init];
     if (self) {
         self.name = name;
         self.imageUrl = imageUrl;
+        self.business = business;
     }
     return self;
 }

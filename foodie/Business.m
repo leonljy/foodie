@@ -33,4 +33,15 @@
     business.reviewCount = [result[@"review_count"] integerValue];
     return business;
 }
+
+-(CLLocationDistance)getDistanceWithCurrentLocation:(CLLocation *)location{
+    NSDictionary *dicLocation = self.locationInfo[@"location"];
+    NSDictionary *coordinate = dicLocation[@"coordinate"];
+    double latitude = [coordinate[@"latitude"] doubleValue];
+    double longitude = [coordinate[@"longitude"] doubleValue];
+    
+    CLLocation *locationStore = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+    CLLocationDistance distance = [location distanceFromLocation:locationStore];
+    return distance;
+}
 @end

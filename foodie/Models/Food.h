@@ -14,6 +14,6 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) Business *business;
 
-- (instancetype)initWithName:(NSString *)name imageUrl:(NSURL *)imageUrl;
+- (instancetype)initWithName:(NSString *)name imageUrl:(NSURL *)imageUrl business:(Business *)business;
 
 @end
