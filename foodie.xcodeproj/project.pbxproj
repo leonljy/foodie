@@ -25,6 +25,7 @@
 		916B36901BAE77F700EE2402 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916B368F1BAE77F700EE2402 /* Accounts.framework */; };
 		916B36921BAE77FE00EE2402 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916B36911BAE77FE00EE2402 /* Social.framework */; };
 		916B36941BAE782000EE2402 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916B36931BAE782000EE2402 /* Bolts.framework */; };
+		916B36A41BAEC25400EE2402 /* IBMServerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B36A31BAEC25400EE2402 /* IBMServerHelper.m */; };
 		91BD9BA51BAE1728003D82EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9BA41BAE1728003D82EF /* main.m */; };
 		91BD9BA81BAE1728003D82EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9BA71BAE1728003D82EF /* AppDelegate.m */; };
 		91BD9BAB1BAE1728003D82EF /* foodie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9BA91BAE1728003D82EF /* foodie.xcdatamodeld */; };
@@ -94,6 +95,8 @@
 		916B368F1BAE77F700EE2402 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		916B36911BAE77FE00EE2402 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		916B36931BAE782000EE2402 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		916B36A21BAEC25400EE2402 /* IBMServerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBMServerHelper.h; sourceTree = "<group>"; };
+		916B36A31BAEC25400EE2402 /* IBMServerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBMServerHelper.m; sourceTree = "<group>"; };
 		91BD9B9F1BAE1728003D82EF /* foodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91BD9BA31BAE1728003D82EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91BD9BA41BAE1728003D82EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -263,6 +266,8 @@
 				91BD9C0D1BAE246C003D82EF /* OAuthConsumer */,
 				E5431B9D1BAE41D400CC6105 /* Models */,
 				E5431B961BAE408500CC6105 /* Views */,
+				916B36A21BAEC25400EE2402 /* IBMServerHelper.h */,
+				916B36A31BAEC25400EE2402 /* IBMServerHelper.m */,
 				916B36711BAE5F1700EE2402 /* ImageUrlHelper.h */,
 				916B36721BAE5F1700EE2402 /* ImageUrlHelper.m */,
 				91BD9BA61BAE1728003D82EF /* AppDelegate.h */,
@@ -541,6 +546,7 @@
 				91BD9BA51BAE1728003D82EF /* main.m in Sources */,
 				E5431BAF1BAEBB7D00CC6105 /* DetailViewController.m in Sources */,
 				91BD9C3D1BAE246C003D82EF /* OACall.m in Sources */,
+				916B36A41BAEC25400EE2402 /* IBMServerHelper.m in Sources */,
 				91BD9C391BAE246C003D82EF /* NSURL+Base.m in Sources */,
 				91BD9C471BAE246C003D82EF /* OATokenManager.m in Sources */,
 				91BD9C421BAE246C003D82EF /* OAPlaintextSignatureProvider.m in Sources */,
@@ -645,7 +651,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -682,7 +688,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

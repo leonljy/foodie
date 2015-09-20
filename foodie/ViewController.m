@@ -17,7 +17,7 @@
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import <Parse/Parse.h>
 #import <MMX.h>
-
+#import "IBMServerHelper.h"
 #define SEARCH_TERM @"Restaurants";
 
 @interface ViewController ()
@@ -27,6 +27,8 @@
 @property (strong, nonatomic) NSMutableArray *selectedFoods;
 @property (weak, nonatomic) IBOutlet UILabel *labelBadge;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewBadge;
+@property (strong, nonatomic) NSMutableArray *foodsToDelete;
+@property (strong, nonatomic) UIImageView *imageViewLogo;
 @end
 
 @implementation ViewController{
@@ -40,12 +42,15 @@
     [self.navigationController.navigationBar setHeight:50.f];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"naviLogo"] forBarMetrics:UIBarMetricsDefault];
     
+    [self showAnimation];
+    
     isReceivedLocation = NO;
     double latitude = 37.75855227;
     double longitude = -122.38431305;
     CLLocation *location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
     currentLocation = location;
     NSString *term = SEARCH_TERM;
+    
     [self callYelpAPIWithCoreLocation:location term:term];
     
     // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
@@ -86,6 +91,39 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+-(void)showAnimation{
+    if(nil==self.imageViewLogo){
+        self.imageViewLogo = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 120, 100)];
+        [self.imageViewLogo setCenter:CGPointMake(self.view.center.x, self.view.center.y - 84)];
+        [self.imageViewLogo setAlpha:1.0f];
+        [self.view addSubview:self.imageViewLogo];
+    }
+    NSMutableArray *images = [[NSMutableArray alloc] init];
+    for (int index = 0; index < 30; index++) {
+        NSString *imageName;
+        if(index<10){
+            imageName = [NSString stringWithFormat:@"Comp 1_0000%d",index];
+        }else{
+            imageName = [NSString stringWithFormat:@"Comp 1_000%d",index];
+        }
+        
+        [images addObject:(id)[[UIImage imageNamed:imageName] CGImage]];
+    }
+    
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
+    animation.calculationMode = kCAAnimationDiscrete;
+    //    animation.duration = images.count / 24.0; // 24 frames per second
+    animation.duration = 0.7;
+    animation.values = images;
+    animation.repeatCount = HUGE_VAL;
+    animation.delegate = self;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    [self.imageViewLogo.layer addAnimation:animation forKey:@"animation"];
+    
+}
+
+
 -(void)callYelpAPIWithCoreLocation:(CLLocation *)location term:(NSString *)term{
     
     YelpAPIHelper *APISample = [[YelpAPIHelper alloc] init];
@@ -107,15 +145,52 @@
                 for (Business *business in self.businesses) {
                     NSArray *foods = [dicFoods objectForKey:business.businessId];
                     [self.foods addObject:foods.firstObject];
+                    [self.foods addObject:[foods objectAtIndex:1]];
                 }
                 
                 
-                dispatch_sync(dispatch_get_main_queue(), ^{
-                    self.frontCardView = [self popFoodViewWithFrame:[self frontCardViewFrame]];
-                    [self.view addSubview:self.frontCardView];
+                NSMutableArray *foodCopy = [NSMutableArray arrayWithArray:self.foods];
+                self.foodsToDelete = [NSMutableArray array];
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+                    for(Food *food in foodCopy) {
+                        NSString *params = [NSString stringWithFormat:@"url=%@&classifier=Food", [food.imageUrl absoluteString]];
+                        NSData *responseData = [[IBMServerHelper sharedInstance] post:params url:@"http://visual-recognition-nodejs-leonljy-313.mybluemix.net"];
+                        NSError* error;
+                        NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData
+                                                                             options:kNilOptions
+                                                                               error:&error];
+                        NSLog(@"%@: %@", food.name, json);
+                        NSDictionary *image = [json[@"images"] firstObject];
+                        NSArray *labels = image[@"labels"];
+                        if(nil==labels){
+                            [self.foodsToDelete addObject:food];
+                        }else{
+                            for(NSDictionary *dic in labels){
+                                if([dic[@"label_name"] isEqualToString:@"food"]){
+                                    if([dic[@"label_score"] doubleValue] < 0.5){
+                                        [self.foodsToDelete addObject:food];
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    for(Food *food in self.foodsToDelete) {
+                        [self.foods removeObject:food];
+                    }
                     
-                    self.backCardView = [self popFoodViewWithFrame:[self backCardViewFrame]];
-                    [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
+                });
+                
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [UIView animateWithDuration:0.5 animations:^{
+                        [self.imageViewLogo setAlpha:0.0f];
+                    } completion:^(BOOL finished) {
+                        self.frontCardView = [self popFoodViewWithFrame:[self frontCardViewFrame]];
+                        [self.view addSubview:self.frontCardView];
+                        
+                        self.backCardView = [self popFoodViewWithFrame:[self backCardViewFrame]];
+                        [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
+                    }];
                 });
                 
             }];
