@@ -15,7 +15,53 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jj0-7U-SYo">
+                                <rect key="frame" x="150" y="500" width="300" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQm-iI-qMf">
+                                        <rect key="frame" x="247" y="18" width="45" height="63"/>
+                                        <state key="normal" image="buttonMyList">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mO7-x4-5qa">
+                                        <rect key="frame" x="0.0" y="18" width="45" height="63"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="63" id="1wt-qw-LW4"/>
+                                            <constraint firstAttribute="width" constant="45" id="nsF-wN-HSW"/>
+                                        </constraints>
+                                        <state key="normal" image="buttonClearList">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="988-Sp-3AN">
+                                        <rect key="frame" x="53" y="18" width="70" height="63"/>
+                                        <state key="normal" image="buttonX">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P68-hx-HRE">
+                                        <rect key="frame" x="169" y="18" width="70" height="63"/>
+                                        <state key="normal" image="buttonO">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="mO7-x4-5qa" firstAttribute="leading" secondItem="jj0-7U-SYo" secondAttribute="leading" id="FAR-G6-Vu9"/>
+                                    <constraint firstAttribute="width" constant="300" id="SAj-Xy-hxL"/>
+                                    <constraint firstAttribute="height" constant="100" id="fia-qN-yoW"/>
+                                    <constraint firstAttribute="centerY" secondItem="mO7-x4-5qa" secondAttribute="centerY" id="grh-Zm-OTR"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="jj0-7U-SYo" secondAttribute="bottom" id="MIe-kK-CSu"/>
+                            <constraint firstAttribute="centerX" secondItem="jj0-7U-SYo" secondAttribute="centerX" id="v7B-LN-6wE"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -23,4 +69,10 @@
             <point key="canvasLocation" x="338" y="324"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="buttonClearList" width="45" height="63"/>
+        <image name="buttonMyList" width="45" height="63"/>
+        <image name="buttonO" width="70" height="63"/>
+        <image name="buttonX" width="70" height="63"/>
+    </resources>
 </document>

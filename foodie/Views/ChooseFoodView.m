@@ -28,12 +28,13 @@
     self = [super initWithFrame:frame options:options];
     if (self) {
         _food = food;
+        NSLog(@"%@", _food.imageUrl);
         [self.imageView sd_setImageWithURL:_food.imageUrl placeholderImage:nil];
         
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight |
         UIViewAutoresizingFlexibleWidth |
         UIViewAutoresizingFlexibleBottomMargin;
-        [self.imageView setContentMode:UIViewContentModeScaleAspectFill];
+        [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
         self.imageView.autoresizingMask = self.autoresizingMask;
         
         [self constructInformationView];

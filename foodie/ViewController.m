@@ -50,12 +50,7 @@
     };
     
     
-    self.frontCardView = [self popFoodViewWithFrame:[self frontCardViewFrame]];
-    [self.view addSubview:self.frontCardView];
 
-
-    self.backCardView = [self popFoodViewWithFrame:[self backCardViewFrame]];
-    [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
 }
 
 -(void)callYelpAPIWithCoreLocation:(CLLocation *)location term:(NSString *)term{
@@ -74,6 +69,22 @@
             }
             ImageUrlHelper *imageUrlHelper = [ImageUrlHelper sharedInstance];
             [imageUrlHelper fetchPhotoListsWithBusinesses:self.businesses];
+            
+            self.foods = [NSMutableArray array];
+            for (Business *business in self.businesses) {
+                [self.foods addObject:business.foods.firstObject];
+            }
+
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                self.frontCardView = [self popFoodViewWithFrame:[self frontCardViewFrame]];
+                [self.view addSubview:self.frontCardView];
+                
+                self.backCardView = [self popFoodViewWithFrame:[self backCardViewFrame]];
+                [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
+            });
+            
+            
             
         } else {
             NSLog(@"No business was found");

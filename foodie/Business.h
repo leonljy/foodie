@@ -19,6 +19,7 @@
 @property (strong,nonatomic) NSURL *url;
 @property (strong,nonatomic) NSURL *urlMobile;
 @property NSInteger reviewCount;
+@property (strong, nonatomic) NSArray *foods;
 
 +(Business *)initWithDic:(NSDictionary *)result;
 @end
