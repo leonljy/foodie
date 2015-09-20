@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelBadge;
 @property (weak, nonatomic) IBOutlet UIImageView *imageViewBadge;
 @property (strong, nonatomic) NSMutableArray *foodsToDelete;
+@property (weak, nonatomic) IBOutlet UIButton *buttonLike;
+@property (weak, nonatomic) IBOutlet UIButton *buttonNope;
 @property (strong, nonatomic) UIImageView *imageViewLogo;
 @end
 
@@ -297,7 +299,36 @@
     // and "LIKED" on swipes to the right.
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"You noped %@.", self.currentFood.name);
+   
+        
+        [UIView animateWithDuration:0.1 animations:^{
+            self.buttonNope.transform = CGAffineTransformScale(self.buttonNope.transform, 1.05, 1.05);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.1 animations:^{
+                CGFloat scale = 0.95f / 1.05f;
+                self.buttonNope.transform = CGAffineTransformScale(self.buttonNope.transform, scale, scale);
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.1 animations:^{
+                    CGFloat scale = 1.0f / 0.95f;
+                    self.buttonNope.transform = CGAffineTransformScale(self.buttonNope.transform, scale, scale);
+                }];
+            }];
+        }];
+        
     } else {
+        [UIView animateWithDuration:0.1 animations:^{
+            self.buttonLike.transform = CGAffineTransformScale(self.buttonLike.transform, 1.05, 1.05);
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.1 animations:^{
+                CGFloat scale = 0.95f / 1.05f;
+                self.buttonLike.transform = CGAffineTransformScale(self.buttonLike.transform, scale, scale);
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:0.1 animations:^{
+                    CGFloat scale = 1.0f / 0.95f;
+                    self.buttonLike.transform = CGAffineTransformScale(self.buttonLike.transform, scale, scale);
+                }];
+            }];
+        }];
         NSLog(@"You liked %@.", self.currentFood.name);
         [self.selectedFoods addObject:self.currentFood];
         self.labelBadge.text = [NSString stringWithFormat:@"%ld", self.selectedFoods.count];
@@ -329,9 +360,6 @@
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
         }];
-
-//           food[@"url"] = @“http://baradkljflajsdf.jpg";
-//                [food save];
     }
     
     // MDCSwipeToChooseView removes the view from the view hierarchy
