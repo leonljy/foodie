@@ -61,6 +61,12 @@
 		E5431BAF1BAEBB7D00CC6105 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431BAE1BAEBB7D00CC6105 /* DetailViewController.m */; };
 		E5431BB11BAEBD8100CC6105 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5431BB01BAEBD8100CC6105 /* MapKit.framework */; };
 		E5C3733F1BAEE842003B7603 /* Configurations.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5C3733E1BAEE842003B7603 /* Configurations.plist */; };
+		E5C373471BAEF209003B7603 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C373421BAEF209003B7603 /* MessageCell.m */; };
+		E5C373481BAEF209003B7603 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C373441BAEF209003B7603 /* MessagesViewController.m */; };
+		E5C373491BAEF209003B7603 /* MessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C373461BAEF209003B7603 /* MessageTextView.m */; };
+		E5C3734F1BAEF239003B7603 /* QuickStartUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3734C1BAEF239003B7603 /* QuickStartUtils.m */; };
+		E5C373501BAEF239003B7603 /* UIColor+QuickStart.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C3734E1BAEF239003B7603 /* UIColor+QuickStart.m */; };
+		E5C373531BAEF3C3003B7603 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C373521BAEF3C3003B7603 /* NavigationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +174,18 @@
 		E5431BAE1BAEBB7D00CC6105 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		E5431BB01BAEBD8100CC6105 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E5C3733E1BAEE842003B7603 /* Configurations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configurations.plist; sourceTree = "<group>"; };
+		E5C373411BAEF209003B7603 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		E5C373421BAEF209003B7603 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		E5C373431BAEF209003B7603 /* MessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		E5C373441BAEF209003B7603 /* MessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
+		E5C373451BAEF209003B7603 /* MessageTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTextView.h; sourceTree = "<group>"; };
+		E5C373461BAEF209003B7603 /* MessageTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTextView.m; sourceTree = "<group>"; };
+		E5C3734B1BAEF239003B7603 /* QuickStartUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickStartUtils.h; sourceTree = "<group>"; };
+		E5C3734C1BAEF239003B7603 /* QuickStartUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickStartUtils.m; sourceTree = "<group>"; };
+		E5C3734D1BAEF239003B7603 /* UIColor+QuickStart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+QuickStart.h"; sourceTree = "<group>"; };
+		E5C3734E1BAEF239003B7603 /* UIColor+QuickStart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QuickStart.m"; sourceTree = "<group>"; };
+		E5C373511BAEF3C3003B7603 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		E5C373521BAEF3C3003B7603 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +277,8 @@
 		91BD9BA11BAE1728003D82EF /* foodie */ = {
 			isa = PBXGroup;
 			children = (
+				E5C3734A1BAEF22B003B7603 /* Util */,
+				E5C373401BAEF1F3003B7603 /* MessageView */,
 				91BD9C0A1BAE246C003D82EF /* NSURLRequest+OAuth.h */,
 				91BD9C0B1BAE246C003D82EF /* NSURLRequest+OAuth.m */,
 				916B366E1BAE5E5800EE2402 /* YelpAPIHelper.h */,
@@ -274,6 +294,8 @@
 				91BD9BA71BAE1728003D82EF /* AppDelegate.m */,
 				91BD9BAC1BAE1728003D82EF /* ViewController.h */,
 				91BD9BAD1BAE1728003D82EF /* ViewController.m */,
+				E5C373511BAEF3C3003B7603 /* NavigationViewController.h */,
+				E5C373521BAEF3C3003B7603 /* NavigationViewController.m */,
 				E5431BA11BAE7E1C00CC6105 /* MyListViewController.h */,
 				E5431BA21BAE7E1C00CC6105 /* MyListViewController.m */,
 				E5431BAD1BAEBB7D00CC6105 /* DetailViewController.h */,
@@ -398,6 +420,30 @@
 				E5431B9F1BAE41EA00CC6105 /* Food.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E5C373401BAEF1F3003B7603 /* MessageView */ = {
+			isa = PBXGroup;
+			children = (
+				E5C373411BAEF209003B7603 /* MessageCell.h */,
+				E5C373421BAEF209003B7603 /* MessageCell.m */,
+				E5C373431BAEF209003B7603 /* MessagesViewController.h */,
+				E5C373441BAEF209003B7603 /* MessagesViewController.m */,
+				E5C373451BAEF209003B7603 /* MessageTextView.h */,
+				E5C373461BAEF209003B7603 /* MessageTextView.m */,
+			);
+			name = MessageView;
+			sourceTree = "<group>";
+		};
+		E5C3734A1BAEF22B003B7603 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E5C3734B1BAEF239003B7603 /* QuickStartUtils.h */,
+				E5C3734C1BAEF239003B7603 /* QuickStartUtils.m */,
+				E5C3734D1BAEF239003B7603 /* UIColor+QuickStart.h */,
+				E5C3734E1BAEF239003B7603 /* UIColor+QuickStart.m */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,6 +593,7 @@
 				E5431BAF1BAEBB7D00CC6105 /* DetailViewController.m in Sources */,
 				91BD9C3D1BAE246C003D82EF /* OACall.m in Sources */,
 				916B36A41BAEC25400EE2402 /* IBMServerHelper.m in Sources */,
+				E5C373481BAEF209003B7603 /* MessagesViewController.m in Sources */,
 				91BD9C391BAE246C003D82EF /* NSURL+Base.m in Sources */,
 				91BD9C471BAE246C003D82EF /* OATokenManager.m in Sources */,
 				91BD9C421BAE246C003D82EF /* OAPlaintextSignatureProvider.m in Sources */,
@@ -554,9 +601,13 @@
 				91BD9C3A1BAE246C003D82EF /* Base64Transcoder.c in Sources */,
 				91BD9C411BAE246C003D82EF /* OAMutableURLRequest.m in Sources */,
 				91BD9BAE1BAE1728003D82EF /* ViewController.m in Sources */,
+				E5C373471BAEF209003B7603 /* MessageCell.m in Sources */,
 				91BD9C441BAE246C003D82EF /* OARequestParameter.m in Sources */,
+				E5C373501BAEF239003B7603 /* UIColor+QuickStart.m in Sources */,
 				E5431BA61BAE7ECC00CC6105 /* MyListTableViewCell.m in Sources */,
+				E5C373491BAEF209003B7603 /* MessageTextView.m in Sources */,
 				916B36731BAE5F1700EE2402 /* ImageUrlHelper.m in Sources */,
+				E5C373531BAEF3C3003B7603 /* NavigationViewController.m in Sources */,
 				91BD9C3B1BAE246C003D82EF /* hmac.c in Sources */,
 				91BD9C461BAE246C003D82EF /* OAToken.m in Sources */,
 				E5431BA01BAE41EA00CC6105 /* Food.m in Sources */,
@@ -564,6 +615,7 @@
 				91BD9C451BAE246C003D82EF /* OAServiceTicket.m in Sources */,
 				916B36761BAE5F2100EE2402 /* Business.m in Sources */,
 				E5431B9C1BAE416B00CC6105 /* ImageLabelView.m in Sources */,
+				E5C3734F1BAEF239003B7603 /* QuickStartUtils.m in Sources */,
 				E5431B991BAE40DA00CC6105 /* ChooseFoodView.m in Sources */,
 				91BD9C3F1BAE246C003D82EF /* OADataFetcher.m in Sources */,
 				91BD9C431BAE246C003D82EF /* OAProblem.m in Sources */,

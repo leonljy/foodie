@@ -119,7 +119,7 @@ NSString * const kTextContent = @"textContent";
 			// Indicate that you are ready to receive messages now!
 			[MMX start];
 
-			[self showAlertWithTitle:@"Logged In" message:[NSString stringWithFormat:@"You are logged in as %@.\n\nTry sending a message below.",kDefaultUsername]];
+//			[self showAlertWithTitle:@"Logged In" message:[NSString stringWithFormat:@"You are logged in as %@.\n\nTry sending a message below.",kDefaultUsername]];
             self.textInputbar.textView.text = @"Hello World";
 		} failure:^(NSError *error) {
 			[self showAlertWithTitle:@"Authentication Failure!" message:@"Something went wrong while trying to authenticate. Please check your server settings and configuration then try again."];

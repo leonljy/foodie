@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4AC75D30E902891FBB4D5A8F"
+               BlueprintIdentifier = "E41DF3F2665036375AB895D3"
                BuildableName = "libMMXXMPPFramework.a"
                BlueprintName = "MMXXMPPFramework"
                ReferencedContainer = "container:Pods.xcodeproj">

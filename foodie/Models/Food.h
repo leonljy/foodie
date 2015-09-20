@@ -13,6 +13,7 @@
 @property (strong, nonatomic) NSURL *imageUrl;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) Business *business;
+@property (strong, nonatomic) NSString *foodieLikes;
 
 - (instancetype)initWithName:(NSString *)name imageUrl:(NSURL *)imageUrl business:(Business *)business;
 
