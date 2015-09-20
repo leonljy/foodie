@@ -305,6 +305,14 @@
     // and "LIKED" on swipes to the right.
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"You noped %@.", self.currentFood.name);
+        [UIView animateWithDuration:0.5 animations:^{
+            
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.5 animations:^{
+             
+            }];
+        }];
+        
     } else {
         NSLog(@"You liked %@.", self.currentFood.name);
         [self.selectedFoods addObject:self.currentFood];
@@ -337,9 +345,6 @@
                 NSLog(@"Error: %@ %@", error, [error userInfo]);
             }
         }];
-
-//           food[@"url"] = @“http://baradkljflajsdf.jpg";
-//                [food save];
     }
     
     // MDCSwipeToChooseView removes the view from the view hierarchy
