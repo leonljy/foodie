@@ -16,6 +16,10 @@
 @property (nonatomic, strong) ImageLabelView *cameraImageLabelView;
 @property (nonatomic, strong) ImageLabelView *interestsImageLabelView;
 @property (nonatomic, strong) ImageLabelView *friendsImageLabelView;
+@property (nonatomic, strong) UILabel *labelBusinessName;
+@property (nonatomic, strong) UILabel *labelReviews;
+@property (nonatomic, strong) UIImageView *imageViewRating;
+
 @end
 
 @implementation ChooseFoodView
@@ -60,23 +64,72 @@
     UIViewAutoresizingFlexibleTopMargin;
     [self addSubview:_informationView];
     
+    [self constructBusinessNameLabel];
     [self constructNameLabel];
+    [self constructBusinessRating];
+    [self constructReviews];
 //    [self constructCameraImageLabelView];
 //    [self constructInterestsImageLabelView];
 //    [self constructFriendsImageLabelView];
 }
 
-- (void)constructNameLabel {
+
+
+- (void)constructBusinessNameLabel {
     CGFloat leftPadding = 12.f;
-    CGFloat topPadding = 17.f;
+    CGFloat topPadding = 13.f;
     CGRect frame = CGRectMake(leftPadding,
                               topPadding,
-                              floorf(CGRectGetWidth(_informationView.frame)),
-                              CGRectGetHeight(_informationView.frame) - topPadding);
+                              floorf(CGRectGetWidth(_informationView.frame) - 110.f),
+                              20.f);
+    self.labelBusinessName = [[UILabel alloc] initWithFrame:frame];
+    self.labelBusinessName.text = self.food.business.name;
+    [_informationView addSubview:self.labelBusinessName];
+}
+
+- (void)constructBusinessRating {
+    CGFloat rightPadding = 10.f;
+    CGFloat topPadding = 15.f;
+    
+    self.imageViewRating = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetWidth(_informationView.bounds) - rightPadding - 83, topPadding, 83, 15)];
+    
+    [self.imageViewRating sd_setImageWithURL:self.food.business.ratingImage placeholderImage:nil];
+                        
+    [_informationView addSubview:self.imageViewRating];
+}
+
+- (void)constructNameLabel {
+    CGFloat leftPadding = 12.f;
+    CGFloat topPadding = 40.f;
+    CGRect frame = CGRectMake(leftPadding,
+                              topPadding,
+                              floorf(CGRectGetWidth(_informationView.frame) - 110.f),
+                              20.f);
     _nameLabel = [[UILabel alloc] initWithFrame:frame];
-//    _nameLabel.text = [NSString stringWithFormat:@"%@, %@", @"FoodName", @"FoodAge"];
     _nameLabel.text = self.food.name;
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:13];
+    _nameLabel.font = font;
+    _nameLabel.textColor = [UIColor redColor];
     [_informationView addSubview:_nameLabel];
+}
+
+
+- (void)constructReviews{
+    CGFloat rightPadding = 10.f;
+    CGFloat topPadding = 40.f;
+    
+    
+    
+    CGRect frame = CGRectMake(CGRectGetWidth(_informationView.bounds) - rightPadding - 83,
+                              topPadding,
+                              83.f,
+                              20.f);
+    self.labelReviews = [[UILabel alloc] initWithFrame:frame];
+    self.labelReviews.text = [NSString stringWithFormat:@"%ld Reviews", self.food.business.reviewCount];
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:13];
+    self.labelReviews.font = font;
+    [self.labelReviews setTextAlignment:NSTextAlignmentRight];
+    [_informationView addSubview:self.labelReviews];
 }
 
 //- (void)constructCameraImageLabelView {

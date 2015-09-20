@@ -13,6 +13,7 @@
 #import "Business.h"
 #import "ImageUrlHelper.h"
 #import "MyListViewController.h"
+#import "UINavigationBar+CustomHeight.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import <Parse/Parse.h>
 #import "IBMServerHelper.h"
@@ -36,6 +37,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.navigationController.navigationBar setHeight:50.f];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"naviLogo"] forBarMetrics:UIBarMetricsDefault];
     
     isReceivedLocation = NO;
     double latitude = 37.75855227;
@@ -75,6 +79,7 @@
             self.businesses = [NSMutableArray arrayWithCapacity:[businesses count]];
             for(NSDictionary *dicBusiness in businesses){
                 Business *business = [Business initWithDic:dicBusiness];
+                business.distance = [business getDistanceWithCurrentLocation:currentLocation];
                 [self.businesses addObject:business];
             }
             ImageUrlHelper *imageUrlHelper = [ImageUrlHelper sharedInstance];

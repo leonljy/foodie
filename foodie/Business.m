@@ -36,13 +36,13 @@
 }
 
 -(CLLocationDistance)getDistanceWithCurrentLocation:(CLLocation *)location{
-    NSDictionary *dicLocation = self.locationInfo[@"location"];
-    NSDictionary *coordinate = dicLocation[@"coordinate"];
+    NSDictionary *coordinate = self.locationInfo[@"coordinate"];
     double latitude = [coordinate[@"latitude"] doubleValue];
     double longitude = [coordinate[@"longitude"] doubleValue];
     
     CLLocation *locationStore = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
     CLLocationDistance distance = [location distanceFromLocation:locationStore];
+    distance = distance * 0.000621371; 
     return distance;
 }
 @end
