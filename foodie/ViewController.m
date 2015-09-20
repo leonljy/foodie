@@ -7,58 +7,36 @@
 //
 
 #import "ViewController.h"
-#import "YPAPISample.h"
+#import "YelpAPIHelper.h"
+#import "TFHpple.h"
+#import <CoreLocation/CoreLocation.h>
+#import "Business.h"
+#import "ImageUrlHelper.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 
+#define SEARCH_TERM @"Restaurants";
 
 @interface ViewController ()
 @property (nonatomic, strong) NSMutableArray *foods;
-
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) NSMutableArray *businesses;
 @end
 
-@implementation ViewController
+@implementation ViewController{
+    BOOL isReceivedLocation;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
-    _foods = [[self defaultFood] mutableCopy];
-
-    // Do any additional setup after loading the view, typically from a nib.
-    NSString *defaultTerm = @"dinner";
-    NSString *defaultLocation = @"San Francisco, CA";
-    
-    //Get the term and location from the command line if there were any, otherwise assign default values.
-    NSString *term = [[NSUserDefaults standardUserDefaults] valueForKey:@"term"] ?: defaultTerm;
-    NSString *location = [[NSUserDefaults standardUserDefaults] valueForKey:@"location"] ?: defaultLocation;
-    
-    YPAPISample *APISample = [[YPAPISample alloc] init];
-    
-    dispatch_group_t requestGroup = dispatch_group_create();
-    
-    dispatch_group_enter(requestGroup);
-
-    [APISample queryTopBusinessInfoForTerm:term location:location completionHandler:^(NSDictionary *topBusinessJSON, NSError *error) {
-        
-        if (error) {
-            NSLog(@"An error happened during the request: %@", error);
-        } else if (topBusinessJSON) {
-            NSLog(@"Top business info: \n %@", topBusinessJSON);
-        } else {
-            NSLog(@"No business was found");
-        }
-        
-        dispatch_group_leave(requestGroup);
-    }];
-//    
-    dispatch_group_wait(requestGroup, DISPATCH_TIME_FOREVER); // This avoids the program exiting before all our asynchronous callbacks have been made.
-    
-
-    
-    
-    
-    
-    
+//    _foods = [[self defaultFood] mutableCopy];
+    isReceivedLocation = NO;
+    double latitude = 37.75855227;
+    double longitude = -122.38431305;
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+    NSString *term = SEARCH_TERM;
+    [self callYelpAPIWithCoreLocation:location term:term];
     
     // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
     MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
@@ -80,6 +58,30 @@
     [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
 }
 
+-(void)callYelpAPIWithCoreLocation:(CLLocation *)location term:(NSString *)term{
+    
+    YelpAPIHelper *APISample = [[YelpAPIHelper alloc] init];
+    [APISample queryTopBusinessInfoForTerm:term coreLocation:location completionHandler:^(NSArray *businesses, NSError *error) {
+        
+        if (error) {
+            NSLog(@"An error happened during the request: %@", error);
+        } else if ([businesses count] > 0) {
+            NSLog(@"Businesses: \n %@", businesses);
+            self.businesses = [NSMutableArray arrayWithCapacity:[businesses count]];
+            for(NSDictionary *dicBusiness in businesses){
+                Business *business = [Business initWithDic:dicBusiness];
+                [self.businesses addObject:business];
+            }
+            ImageUrlHelper *imageUrlHelper = [ImageUrlHelper sharedInstance];
+            [imageUrlHelper fetchPhotoListsWithBusinesses:self.businesses];
+            
+        } else {
+            NSLog(@"No business was found");
+        }
+        
+        
+    }];
+}
 
 #pragma mark View Contruction
 

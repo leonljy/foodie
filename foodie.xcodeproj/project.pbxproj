@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3ADA1356491D01B2AECA2F66 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD7E93940E6978FEBF28E7FA /* libPods.a */; };
+		916B36701BAE5E5800EE2402 /* YelpAPIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B366F1BAE5E5800EE2402 /* YelpAPIHelper.m */; };
+		916B36731BAE5F1700EE2402 /* ImageUrlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B36721BAE5F1700EE2402 /* ImageUrlHelper.m */; };
+		916B36761BAE5F2100EE2402 /* Business.m in Sources */ = {isa = PBXBuildFile; fileRef = 916B36751BAE5F2100EE2402 /* Business.m */; };
 		91BD9BA51BAE1728003D82EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9BA41BAE1728003D82EF /* main.m */; };
 		91BD9BA81BAE1728003D82EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9BA71BAE1728003D82EF /* AppDelegate.m */; };
 		91BD9BAB1BAE1728003D82EF /* foodie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9BA91BAE1728003D82EF /* foodie.xcdatamodeld */; };
@@ -17,7 +20,6 @@
 		91BD9BB61BAE1728003D82EF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91BD9BB41BAE1728003D82EF /* LaunchScreen.xib */; };
 		91BD9BC21BAE1728003D82EF /* foodieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9BC11BAE1728003D82EF /* foodieTests.m */; };
 		91BD9C351BAE246C003D82EF /* NSURLRequest+OAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9C0B1BAE246C003D82EF /* NSURLRequest+OAuth.m */; };
-		91BD9C361BAE246C003D82EF /* YPAPISample.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9C0C1BAE246C003D82EF /* YPAPISample.m */; };
 		91BD9C371BAE246C003D82EF /* NSMutableURLRequest+Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9C101BAE246C003D82EF /* NSMutableURLRequest+Parameters.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		91BD9C381BAE246C003D82EF /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9C121BAE246C003D82EF /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		91BD9C391BAE246C003D82EF /* NSURL+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 91BD9C141BAE246C003D82EF /* NSURL+Base.m */; };
@@ -52,6 +54,12 @@
 
 /* Begin PBXFileReference section */
 		1D4AEA9872649168D5BD50B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		916B366E1BAE5E5800EE2402 /* YelpAPIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpAPIHelper.h; sourceTree = "<group>"; };
+		916B366F1BAE5E5800EE2402 /* YelpAPIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpAPIHelper.m; sourceTree = "<group>"; };
+		916B36711BAE5F1700EE2402 /* ImageUrlHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUrlHelper.h; sourceTree = "<group>"; };
+		916B36721BAE5F1700EE2402 /* ImageUrlHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUrlHelper.m; sourceTree = "<group>"; };
+		916B36741BAE5F2100EE2402 /* Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Business.h; sourceTree = "<group>"; };
+		916B36751BAE5F2100EE2402 /* Business.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Business.m; sourceTree = "<group>"; };
 		91BD9B9F1BAE1728003D82EF /* foodie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91BD9BA31BAE1728003D82EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91BD9BA41BAE1728003D82EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,7 +77,6 @@
 		91BD9C091BAE2157003D82EF /* foodie-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "foodie-Prefix.pch"; sourceTree = "<group>"; };
 		91BD9C0A1BAE246C003D82EF /* NSURLRequest+OAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLRequest+OAuth.h"; sourceTree = "<group>"; };
 		91BD9C0B1BAE246C003D82EF /* NSURLRequest+OAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLRequest+OAuth.m"; sourceTree = "<group>"; };
-		91BD9C0C1BAE246C003D82EF /* YPAPISample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YPAPISample.m; sourceTree = "<group>"; };
 		91BD9C0F1BAE246C003D82EF /* NSMutableURLRequest+Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Parameters.h"; sourceTree = "<group>"; };
 		91BD9C101BAE246C003D82EF /* NSMutableURLRequest+Parameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Parameters.m"; sourceTree = "<group>"; };
 		91BD9C111BAE246C003D82EF /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
@@ -106,7 +113,6 @@
 		91BD9C311BAE246C003D82EF /* OATokenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OATokenManager.h; sourceTree = "<group>"; };
 		91BD9C321BAE246C003D82EF /* OATokenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OATokenManager.m; sourceTree = "<group>"; };
 		91BD9C331BAE246C003D82EF /* OAuthConsumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
-		91BD9C341BAE246C003D82EF /* YPAPISample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YPAPISample.h; sourceTree = "<group>"; };
 		BB8AEC1F6DB5597042DA1B15 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DD7E93940E6978FEBF28E7FA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5431B971BAE40DA00CC6105 /* ChooseFoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseFoodView.h; path = Views/ChooseFoodView.h; sourceTree = "<group>"; };
@@ -178,11 +184,13 @@
 			children = (
 				91BD9C0A1BAE246C003D82EF /* NSURLRequest+OAuth.h */,
 				91BD9C0B1BAE246C003D82EF /* NSURLRequest+OAuth.m */,
-				91BD9C0C1BAE246C003D82EF /* YPAPISample.m */,
+				916B366E1BAE5E5800EE2402 /* YelpAPIHelper.h */,
+				916B366F1BAE5E5800EE2402 /* YelpAPIHelper.m */,
 				91BD9C0D1BAE246C003D82EF /* OAuthConsumer */,
-				91BD9C341BAE246C003D82EF /* YPAPISample.h */,
 				E5431B9D1BAE41D400CC6105 /* Models */,
 				E5431B961BAE408500CC6105 /* Views */,
+				916B36711BAE5F1700EE2402 /* ImageUrlHelper.h */,
+				916B36721BAE5F1700EE2402 /* ImageUrlHelper.m */,
 				91BD9BA61BAE1728003D82EF /* AppDelegate.h */,
 				91BD9BA71BAE1728003D82EF /* AppDelegate.m */,
 				91BD9BAC1BAE1728003D82EF /* ViewController.h */,
@@ -296,6 +304,8 @@
 		E5431B9D1BAE41D400CC6105 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				916B36741BAE5F2100EE2402 /* Business.h */,
+				916B36751BAE5F2100EE2402 /* Business.m */,
 				E5431B9E1BAE41EA00CC6105 /* Food.h */,
 				E5431B9F1BAE41EA00CC6105 /* Food.m */,
 			);
@@ -448,21 +458,23 @@
 				91BD9C411BAE246C003D82EF /* OAMutableURLRequest.m in Sources */,
 				91BD9BAE1BAE1728003D82EF /* ViewController.m in Sources */,
 				91BD9C441BAE246C003D82EF /* OARequestParameter.m in Sources */,
+				916B36731BAE5F1700EE2402 /* ImageUrlHelper.m in Sources */,
 				91BD9C3B1BAE246C003D82EF /* hmac.c in Sources */,
 				91BD9C461BAE246C003D82EF /* OAToken.m in Sources */,
 				E5431BA01BAE41EA00CC6105 /* Food.m in Sources */,
 				91BD9C371BAE246C003D82EF /* NSMutableURLRequest+Parameters.m in Sources */,
 				91BD9C451BAE246C003D82EF /* OAServiceTicket.m in Sources */,
+				916B36761BAE5F2100EE2402 /* Business.m in Sources */,
 				E5431B9C1BAE416B00CC6105 /* ImageLabelView.m in Sources */,
 				E5431B991BAE40DA00CC6105 /* ChooseFoodView.m in Sources */,
 				91BD9C3F1BAE246C003D82EF /* OADataFetcher.m in Sources */,
 				91BD9C431BAE246C003D82EF /* OAProblem.m in Sources */,
 				91BD9C3E1BAE246C003D82EF /* OAConsumer.m in Sources */,
 				91BD9C401BAE246C003D82EF /* OAHMAC_SHA1SignatureProvider.m in Sources */,
+				916B36701BAE5E5800EE2402 /* YelpAPIHelper.m in Sources */,
 				91BD9C351BAE246C003D82EF /* NSURLRequest+OAuth.m in Sources */,
 				91BD9BAB1BAE1728003D82EF /* foodie.xcdatamodeld in Sources */,
 				91BD9C381BAE246C003D82EF /* NSString+URLEncoding.m in Sources */,
-				91BD9C361BAE246C003D82EF /* YPAPISample.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

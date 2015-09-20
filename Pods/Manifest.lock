@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - hpple (0.2.0)
   - MDCSwipeToChoose (0.2.3)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
@@ -27,11 +28,13 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.4)
+  - hpple (~> 0.2)
   - MDCSwipeToChoose
   - SDWebImage (~> 3.7)
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  hpple: 3b765f96fc2cd56ad1a49aef6f7be5cb2aa64b57
   MDCSwipeToChoose: 56239d98b4558c66e7c3c9069482befd26092270
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
 
