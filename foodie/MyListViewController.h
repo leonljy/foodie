@@ -10,4 +10,6 @@
 
 @interface MyListViewController : UIViewController
 
+@property (strong, nonatomic) NSMutableArray *selectedFoods;
+
 @end

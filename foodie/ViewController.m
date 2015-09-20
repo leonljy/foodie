@@ -12,6 +12,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "Business.h"
 #import "ImageUrlHelper.h"
+#import "MyListViewController.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import <Parse/Parse.h>
 
@@ -255,7 +256,10 @@
     [self nopeFrontCardView];
 }
 - (IBAction)handleMyList:(id)sender {
-    
+    MyListViewController *myListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MY_LIST_VIEW_CONTROLLER"];
+    myListViewController.selectedFoods = self.selectedFoods;
+    [self.navigationController pushViewController:myListViewController animated:YES];
+                                                  
 }
 - (IBAction)handleClearList:(id)sender {
     [self.selectedFoods removeAllObjects];
