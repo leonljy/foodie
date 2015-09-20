@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
+#import <MMX/MMX.h>
+
 @interface AppDelegate ()
 
 @end
@@ -27,6 +29,33 @@
     
     // [Optional] Track statistics around application opens.
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
+    
+    // Initialize Magnet Message
+    [MMX setupWithConfiguration:@"default"];
+    
+    NSString *username = @"jane.do";
+    NSString *password = @"mag";
+    
+    NSURLCredential *credential = [NSURLCredential credentialWithUser:username password:password persistence:NSURLCredentialPersistenceNone];
+    
+    MMXUser *user = [[MMXUser alloc] init];
+    user.displayName = @"Jane Do";
+    [user registerWithCredential:credential success:^{
+        
+    } failure:^(NSError *error) {
+        // error.code == 409 if the user already exists
+    }];
+    
+    
+    [MMXUser logInWithCredential:credential success:^(MMXUser *user) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    MMXUser *currentUser = [MMXUser currentUser];
 
     return YES;
 }
