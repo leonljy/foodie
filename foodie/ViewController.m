@@ -98,7 +98,7 @@
 
 - (CGRect)frontCardViewFrame {
     CGFloat horizontalPadding = 20.f;
-    CGFloat topPadding = 60.f;
+    CGFloat topPadding = 30.f;
     CGFloat bottomPadding = 200.f;
     return CGRectMake(horizontalPadding,
                       topPadding,
