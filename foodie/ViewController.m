@@ -103,7 +103,7 @@
     return CGRectMake(horizontalPadding,
                       topPadding,
                       CGRectGetWidth(self.view.frame) - (horizontalPadding * 2),
-                      CGRectGetHeight(self.view.frame) - bottomPadding);
+                      350.f);
 }
 
 - (CGRect)backCardViewFrame {

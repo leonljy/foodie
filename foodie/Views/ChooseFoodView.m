@@ -29,6 +29,9 @@
     if (self) {
         _food = food;
         NSLog(@"%@", _food.imageUrl);
+
+        [self.imageView setFrame:CGRectMake(0, 0, self.imageView.bounds.size.width, self.imageView.bounds.size.width)];
+        
         [self.imageView sd_setImageWithURL:_food.imageUrl placeholderImage:nil];
         
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight |
@@ -45,7 +48,7 @@
 #pragma mark - Internal Methods
 
 - (void)constructInformationView {
-    CGFloat bottomHeight = 60.f;
+    CGFloat bottomHeight = 70.f;
     CGRect bottomFrame = CGRectMake(0,
                                     CGRectGetHeight(self.bounds) - bottomHeight,
                                     CGRectGetWidth(self.bounds),
@@ -68,7 +71,7 @@
     CGFloat topPadding = 17.f;
     CGRect frame = CGRectMake(leftPadding,
                               topPadding,
-                              floorf(CGRectGetWidth(_informationView.frame)/2),
+                              floorf(CGRectGetWidth(_informationView.frame)),
                               CGRectGetHeight(_informationView.frame) - topPadding);
     _nameLabel = [[UILabel alloc] initWithFrame:frame];
 //    _nameLabel.text = [NSString stringWithFormat:@"%@, %@", @"FoodName", @"FoodAge"];
