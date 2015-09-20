@@ -7,10 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Business.h"
 
 @interface Food : NSObject
 @property (strong, nonatomic) NSURL *imageUrl;
 @property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) Business *business;
 
 - (instancetype)initWithName:(NSString *)name imageUrl:(NSURL *)imageUrl;
 
