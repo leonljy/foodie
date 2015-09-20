@@ -31,11 +31,22 @@
     
     Food *food = [self.selectedFoods objectAtIndex:indexPath.row];
     [cell.imageViewFood sd_setImageWithURL:food.imageUrl placeholderImage:nil];
+    [cell.labelBusinessName setText:food.business.name];
+    [cell.labelBusinessDistance setText:[NSString stringWithFormat:@"%.2lf mi",food.business.distance]];
+    [cell.imageViewRating sd_setImageWithURL:food.business.ratingImage placeholderImage:nil];
+    [cell.labelBusinessReviews setText:[NSString stringWithFormat:@"%ld Reviews", food.business.reviewCount]];
+    NSArray *addresses = [food.business.locationInfo objectForKey:@"display_address"];
+    [cell.labelBusinessAddress setText:[NSString stringWithFormat:@"%@, %@", addresses[0], addresses[1]]];
+    
     [cell.labelName setText:food.name];
+    
     return cell;
 }
 
 
+- (IBAction)handleBack:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 
 - (void)didReceiveMemoryWarning {

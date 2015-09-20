@@ -56,6 +56,7 @@
 		E5431BA01BAE41EA00CC6105 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431B9F1BAE41EA00CC6105 /* Food.m */; };
 		E5431BA31BAE7E1C00CC6105 /* MyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431BA21BAE7E1C00CC6105 /* MyListViewController.m */; };
 		E5431BA61BAE7ECC00CC6105 /* MyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431BA51BAE7ECC00CC6105 /* MyListTableViewCell.m */; };
+		E5431BAC1BAEA38D00CC6105 /* UINavigationBar+CustomHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431BAB1BAEA38D00CC6105 /* UINavigationBar+CustomHeight.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,8 @@
 		E5431BA21BAE7E1C00CC6105 /* MyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyListViewController.m; sourceTree = "<group>"; };
 		E5431BA41BAE7ECC00CC6105 /* MyListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyListTableViewCell.h; sourceTree = "<group>"; };
 		E5431BA51BAE7ECC00CC6105 /* MyListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyListTableViewCell.m; sourceTree = "<group>"; };
+		E5431BAA1BAEA38D00CC6105 /* UINavigationBar+CustomHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+CustomHeight.h"; sourceTree = "<group>"; };
+		E5431BAB1BAEA38D00CC6105 /* UINavigationBar+CustomHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+CustomHeight.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +362,8 @@
 		E5431B961BAE408500CC6105 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E5431BAA1BAEA38D00CC6105 /* UINavigationBar+CustomHeight.h */,
+				E5431BAB1BAEA38D00CC6105 /* UINavigationBar+CustomHeight.m */,
 				E5431B9A1BAE416B00CC6105 /* ImageLabelView.h */,
 				E5431B9B1BAE416B00CC6105 /* ImageLabelView.m */,
 				E5431B971BAE40DA00CC6105 /* ChooseFoodView.h */,
@@ -520,6 +525,7 @@
 				91BD9C391BAE246C003D82EF /* NSURL+Base.m in Sources */,
 				91BD9C471BAE246C003D82EF /* OATokenManager.m in Sources */,
 				91BD9C421BAE246C003D82EF /* OAPlaintextSignatureProvider.m in Sources */,
+				E5431BAC1BAEA38D00CC6105 /* UINavigationBar+CustomHeight.m in Sources */,
 				91BD9C3A1BAE246C003D82EF /* Base64Transcoder.c in Sources */,
 				91BD9C411BAE246C003D82EF /* OAMutableURLRequest.m in Sources */,
 				91BD9BAE1BAE1728003D82EF /* ViewController.m in Sources */,
