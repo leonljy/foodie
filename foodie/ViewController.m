@@ -13,6 +13,7 @@
 #import "Business.h"
 #import "ImageUrlHelper.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
+#import <Parse/Parse.h>
 
 #define SEARCH_TERM @"Restaurants";
 
@@ -29,7 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    testObject[@"foo"] = @"bar";
+    [testObject saveInBackground];
 //    _foods = [[self defaultFood] mutableCopy];
     isReceivedLocation = NO;
     double latitude = 37.75855227;
