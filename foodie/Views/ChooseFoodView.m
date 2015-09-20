@@ -71,7 +71,8 @@
                               floorf(CGRectGetWidth(_informationView.frame)/2),
                               CGRectGetHeight(_informationView.frame) - topPadding);
     _nameLabel = [[UILabel alloc] initWithFrame:frame];
-    _nameLabel.text = [NSString stringWithFormat:@"%@, %@", @"FoodName", @"FoodAge"];
+//    _nameLabel.text = [NSString stringWithFormat:@"%@, %@", @"FoodName", @"FoodAge"];
+    _nameLabel.text = self.food.name;
     [_informationView addSubview:_nameLabel];
 }
 

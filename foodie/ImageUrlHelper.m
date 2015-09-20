@@ -38,23 +38,25 @@ static NSString *baseUrl = @"http://www.yelp.com/biz_photos/";
     
     TFHpple * doc       = [[TFHpple alloc] initWithHTMLData:data];
     NSMutableArray *imageUrls = [NSMutableArray arrayWithArray:[doc searchWithXPathQuery:@"//img[@class='photo-box-img']"]];
-//    NSMutableArray *names = [NSMutableArray arrayWithArray:[doc searchWithXPathQuery:@"//div[@class='photo-box-overlay_caption']"]];
+    NSMutableArray *spans = [NSMutableArray arrayWithArray:[doc searchWithXPathQuery:@"//span[@class='offscreen']"]];
     [imageUrls removeObjectAtIndex:0];
+    [spans removeObjectAtIndex:0];
 
-    
     NSMutableArray *foods = [NSMutableArray arrayWithCapacity:imageUrls.count];
-    for (TFHppleElement *imageUrlElement in imageUrls) {
+//    for (TFHppleElement *imageUrlElement in imageUrls) {
+    
+    for (NSInteger index =0;index<[imageUrls count];index++){
+        TFHppleElement *imageUrlElement = [imageUrls objectAtIndex:index];
         NSString *imageUrlString = [imageUrlElement objectForKey:@"src"];
         imageUrlString = [NSString stringWithFormat:@"http:%@", imageUrlString];
-        Food *food = [[Food alloc] initWithName:@"" imageUrl:[NSURL URLWithString:imageUrlString]];
+        
+        TFHppleElement *spanElement = [spans objectAtIndex:index];
+        
+        Food *food = [[Food alloc] initWithName:[spanElement text] imageUrl:[NSURL URLWithString:imageUrlString]];
         [foods addObject:food];
     }
     
-    
     return foods;
-//    TFHppleElement * element = [elements objectAtIndex:1];
-//    
-//    NSLog(@"%@", [element objectForKey:@"src"]);       // Easy access to single attribute)
 }
 
 @end
