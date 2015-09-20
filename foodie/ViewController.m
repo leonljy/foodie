@@ -25,19 +25,17 @@
 
 @implementation ViewController{
     BOOL isReceivedLocation;
+    CLLocation *currentLocation;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-//    testObject[@"foo"] = @"bar";
-//    [testObject saveInBackground];
-//    _foods = [[self defaultFood] mutableCopy];
     isReceivedLocation = NO;
     double latitude = 37.75855227;
     double longitude = -122.38431305;
     CLLocation *location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+    currentLocation = location;
     NSString *term = SEARCH_TERM;
     [self callYelpAPIWithCoreLocation:location term:term];
     
@@ -51,9 +49,6 @@
             NSLog(@"Let go now to delete the photo!");
         }
     };
-    
-    
-
 }
 
 -(void)callYelpAPIWithCoreLocation:(CLLocation *)location term:(NSString *)term{
@@ -126,7 +121,7 @@
     _frontCardView = frontCardView;
     self.currentFood = frontCardView.food;
 }
-
+/*
 - (NSArray *)defaultFood {
     return @[
              [[Food alloc] initWithName:@"1" imageUrl:[NSURL URLWithString:@"http://s3-media3.fl.yelpcdn.com/bphoto/Ih1vn0z3B03NpkuXGkDdtg/o.jpg"]],
@@ -137,6 +132,7 @@
              [[Food alloc] initWithName:@"1" imageUrl:[NSURL URLWithString:@"http://s3-media3.fl.yelpcdn.com/bphoto/Ih1vn0z3B03NpkuXGkDdtg/o.jpg"]]
              ];
 }
+ */
 
 
 

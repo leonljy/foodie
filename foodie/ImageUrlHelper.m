@@ -25,15 +25,16 @@ static NSString *baseUrl = @"http://www.yelp.com/biz_photos/";
 
 -(void)fetchPhotoListsWithBusinesses:(NSArray *)businesses{
     for(Business *business in businesses){
-        business.foods = [self foodsWithID:business.businessId page:0];
+        business.foods = [self foodsWithID:business page:0];
     }
 }
 
 
 
--(NSArray *)foodsWithID:(NSString *)businessId page:(NSInteger)page{
-    NSString *urlString = [NSString stringWithFormat:@"%@%@?start=%lu", baseUrl, businessId, (long)page];
+-(NSArray *)foodsWithID:(Business *)business page:(NSInteger)page{
+    NSString *urlString = [NSString stringWithFormat:@"%@%@?start=%lu", baseUrl, business.businessId, (long)page];
     NSURL *urlPhotoList = [NSURL URLWithString:urlString];
+    
     NSData  * data      = [NSData dataWithContentsOfURL:urlPhotoList];
     
     TFHpple * doc       = [[TFHpple alloc] initWithHTMLData:data];
@@ -52,9 +53,10 @@ static NSString *baseUrl = @"http://www.yelp.com/biz_photos/";
         
         TFHppleElement *spanElement = [spans objectAtIndex:index];
         
-        Food *food = [[Food alloc] initWithName:[spanElement text] imageUrl:[NSURL URLWithString:imageUrlString]];
+        Food *food = [[Food alloc] initWithName:[spanElement text] imageUrl:[NSURL URLWithString:imageUrlString] business:business];
         [foods addObject:food];
     }
+    
     
     return foods;
 }
