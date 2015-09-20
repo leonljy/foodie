@@ -21,6 +21,9 @@
 @property (nonatomic, strong) NSMutableArray *foods;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *businesses;
+@property (strong, nonatomic) NSMutableArray *selectedFoods;
+@property (weak, nonatomic) IBOutlet UILabel *labelBadge;
+@property (weak, nonatomic) IBOutlet UIImageView *imageViewBadge;
 @end
 
 @implementation ViewController{
@@ -49,6 +52,12 @@
             NSLog(@"Let go now to delete the photo!");
         }
     };
+    self.selectedFoods = [NSMutableArray array];
+
+    if (self.selectedFoods.count<1) {
+        [self.imageViewBadge setAlpha:0.f];
+        [self.labelBadge setAlpha:0.f];
+    }
 }
 
 -(void)callYelpAPIWithCoreLocation:(CLLocation *)location term:(NSString *)term{
@@ -97,7 +106,7 @@
 
 - (CGRect)frontCardViewFrame {
     CGFloat horizontalPadding = 20.f;
-    CGFloat topPadding = 60.f;
+    CGFloat topPadding = 30.f;
     CGFloat bottomPadding = 200.f;
     return CGRectMake(horizontalPadding,
                       topPadding,
@@ -196,6 +205,10 @@
         NSLog(@"You noped %@.", self.currentFood.name);
     } else {
         NSLog(@"You liked %@.", self.currentFood.name);
+        [self.selectedFoods addObject:self.currentFood];
+        self.labelBadge.text = [NSString stringWithFormat:@"%ld", self.selectedFoods.count];
+        [self.imageViewBadge setAlpha:1.f];
+        [self.labelBadge setAlpha:1.f];
     }
     
     // MDCSwipeToChooseView removes the view from the view hierarchy
@@ -216,7 +229,7 @@
     }
 }
 
-#pragma mark Control Events
+#pragma mark - Control Events
 
 // Programmatically "nopes" the front card view.
 - (void)nopeFrontCardView {
@@ -233,6 +246,22 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Handle Events
+- (IBAction)handleLike:(id)sender {
+    [self likeFrontCardView];
+}
+- (IBAction)handleNope:(id)sender {
+    [self nopeFrontCardView];
+}
+- (IBAction)handleMyList:(id)sender {
+    
+}
+- (IBAction)handleClearList:(id)sender {
+    [self.selectedFoods removeAllObjects];
+    [self.imageViewBadge setAlpha:0.f];
+    [self.labelBadge setAlpha:0.f];
 }
 
 @end

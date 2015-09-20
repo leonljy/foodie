@@ -54,6 +54,8 @@
 		E5431B991BAE40DA00CC6105 /* ChooseFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431B981BAE40DA00CC6105 /* ChooseFoodView.m */; };
 		E5431B9C1BAE416B00CC6105 /* ImageLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431B9B1BAE416B00CC6105 /* ImageLabelView.m */; };
 		E5431BA01BAE41EA00CC6105 /* Food.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431B9F1BAE41EA00CC6105 /* Food.m */; };
+		E5431BA31BAE7E1C00CC6105 /* MyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431BA21BAE7E1C00CC6105 /* MyListViewController.m */; };
+		E5431BA61BAE7ECC00CC6105 /* MyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5431BA51BAE7ECC00CC6105 /* MyListTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +151,10 @@
 		E5431B9B1BAE416B00CC6105 /* ImageLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLabelView.m; sourceTree = "<group>"; };
 		E5431B9E1BAE41EA00CC6105 /* Food.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Food.h; path = Models/Food.h; sourceTree = "<group>"; };
 		E5431B9F1BAE41EA00CC6105 /* Food.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Food.m; path = Models/Food.m; sourceTree = "<group>"; };
+		E5431BA11BAE7E1C00CC6105 /* MyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyListViewController.h; sourceTree = "<group>"; };
+		E5431BA21BAE7E1C00CC6105 /* MyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyListViewController.m; sourceTree = "<group>"; };
+		E5431BA41BAE7ECC00CC6105 /* MyListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyListTableViewCell.h; sourceTree = "<group>"; };
+		E5431BA51BAE7ECC00CC6105 /* MyListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyListTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +257,10 @@
 				91BD9BA71BAE1728003D82EF /* AppDelegate.m */,
 				91BD9BAC1BAE1728003D82EF /* ViewController.h */,
 				91BD9BAD1BAE1728003D82EF /* ViewController.m */,
+				E5431BA11BAE7E1C00CC6105 /* MyListViewController.h */,
+				E5431BA21BAE7E1C00CC6105 /* MyListViewController.m */,
+				E5431BA41BAE7ECC00CC6105 /* MyListTableViewCell.h */,
+				E5431BA51BAE7ECC00CC6105 /* MyListTableViewCell.m */,
 				91BD9BAF1BAE1728003D82EF /* Main.storyboard */,
 				91BD9BB21BAE1728003D82EF /* Images.xcassets */,
 				91BD9BB41BAE1728003D82EF /* LaunchScreen.xib */,
@@ -514,6 +524,7 @@
 				91BD9C411BAE246C003D82EF /* OAMutableURLRequest.m in Sources */,
 				91BD9BAE1BAE1728003D82EF /* ViewController.m in Sources */,
 				91BD9C441BAE246C003D82EF /* OARequestParameter.m in Sources */,
+				E5431BA61BAE7ECC00CC6105 /* MyListTableViewCell.m in Sources */,
 				916B36731BAE5F1700EE2402 /* ImageUrlHelper.m in Sources */,
 				91BD9C3B1BAE246C003D82EF /* hmac.c in Sources */,
 				91BD9C461BAE246C003D82EF /* OAToken.m in Sources */,
@@ -529,6 +540,7 @@
 				91BD9C401BAE246C003D82EF /* OAHMAC_SHA1SignatureProvider.m in Sources */,
 				916B36701BAE5E5800EE2402 /* YelpAPIHelper.m in Sources */,
 				91BD9C351BAE246C003D82EF /* NSURLRequest+OAuth.m in Sources */,
+				E5431BA31BAE7E1C00CC6105 /* MyListViewController.m in Sources */,
 				91BD9BAB1BAE1728003D82EF /* foodie.xcdatamodeld in Sources */,
 				91BD9C381BAE246C003D82EF /* NSString+URLEncoding.m in Sources */,
 			);
