@@ -76,24 +76,23 @@
                 [self.businesses addObject:business];
             }
             ImageUrlHelper *imageUrlHelper = [ImageUrlHelper sharedInstance];
-            [imageUrlHelper fetchPhotoListsWithBusinesses:self.businesses];
-            
-            self.foods = [NSMutableArray array];
-            for (Business *business in self.businesses) {
-                [self.foods addObject:business.foods.firstObject];
-            }
-
-            
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                self.frontCardView = [self popFoodViewWithFrame:[self frontCardViewFrame]];
-                [self.view addSubview:self.frontCardView];
+            [imageUrlHelper fetchPhotoListsWithBusinesses:self.businesses completionHandler:^(NSDictionary *dicFoods) {
+                self.foods = [NSMutableArray array];
+                for (Business *business in self.businesses) {
+                    NSArray *foods = [dicFoods objectForKey:business.businessId];
+                    [self.foods addObject:foods.firstObject];
+                }
                 
-                self.backCardView = [self popFoodViewWithFrame:[self backCardViewFrame]];
-                [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
-            });
-            
-            
-            
+                
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    self.frontCardView = [self popFoodViewWithFrame:[self frontCardViewFrame]];
+                    [self.view addSubview:self.frontCardView];
+                    
+                    self.backCardView = [self popFoodViewWithFrame:[self backCardViewFrame]];
+                    [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
+                });
+                
+            }];
         } else {
             NSLog(@"No business was found");
         }
@@ -101,6 +100,8 @@
         
     }];
 }
+//23:28:19.365
+//23:28:22.134
 
 #pragma mark View Contruction
 

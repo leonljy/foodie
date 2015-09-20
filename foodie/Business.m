@@ -28,9 +28,10 @@
     business.locationInfo = result[@"location"];
     business.name = result[@"name"];
     business.rating = [result[@"rating"] doubleValue];
-    business.url = [NSURL URLWithString:@"url"];
-    business.urlMobile = [NSURL URLWithString:@"mobile_url"];
+    business.url = [NSURL URLWithString:result[@"url"]];
+    business.urlMobile = [NSURL URLWithString:result[@"mobile_url"]];
     business.reviewCount = [result[@"review_count"] integerValue];
+    business.ratingImage = [NSURL URLWithString:result[@"rating_img_url_large"]];
     return business;
 }
 
