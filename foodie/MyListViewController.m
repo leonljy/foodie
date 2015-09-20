@@ -10,6 +10,7 @@
 #import "MyListViewController.h"
 #import "MyListTableViewCell.h"
 #import "Food.h"
+#import "DetailViewController.h"
 
 @interface MyListViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -41,6 +42,13 @@
     [cell.labelName setText:food.name];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    Food *food = [self.selectedFoods objectAtIndex:indexPath.row];
+    DetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DETAIL_VIEW_CONTROLLER"];
+    detailViewController.food = food;
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 
