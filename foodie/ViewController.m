@@ -292,6 +292,35 @@
         self.labelBadge.text = [NSString stringWithFormat:@"%ld", self.selectedFoods.count];
         [self.imageViewBadge setAlpha:1.f];
         [self.labelBadge setAlpha:1.f];
+
+        NSString *name = @"Jeonguk";
+        PFQuery *query = [PFQuery queryWithClassName:@"Food"];
+        
+        [query whereKey:@"userName" equalTo:name];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                // The find succeeded.
+                if(0<[objects count]){
+                    PFObject *food = [objects firstObject];
+                    NSMutableArray *urls = [NSMutableArray arrayWithArray:food[@"urls"]];
+                    [urls addObject:[self.currentFood.imageUrl absoluteString]];
+                    food[@"urls"] = [NSArray arrayWithArray:urls];
+                    [food save];
+                }else{
+                    PFObject *food = [PFObject objectWithClassName:@"Food"];
+                    food[@"urls"] = @[[self.currentFood.imageUrl absoluteString]];
+                    food[@"userName"] = name;
+                    [food save];
+                }
+                
+            } else {
+                // Log details of the failure
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+        }];
+
+//           food[@"url"] = @“http://baradkljflajsdf.jpg";
+//                [food save];
     }
     
     // MDCSwipeToChooseView removes the view from the view hierarchy
