@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="cPL-5l-yBN">
             <objects>
-                <navigationController id="089-It-PFi" sceneMemberID="viewController">
+                <navigationController id="089-It-PFi" customClass="NavigationViewController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ahh-Q8-Zrc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -146,6 +146,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1516" y="296"/>
+        </scene>
+        <!--Messages View Controller-->
+        <scene sceneID="ZpK-zR-Qoh">
+            <objects>
+                <viewController storyboardIdentifier="MESSAGES_VIEW_CONTROLLER" id="Pef-oO-yEm" customClass="MessagesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ssY-zH-ymB"/>
+                        <viewControllerLayoutGuide type="bottom" id="F70-sg-8AC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3oc-wf-ejx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uYQ-9W-LFO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1100" y="-570"/>
         </scene>
         <!--My List View Controller-->
         <scene sceneID="jWe-XR-7Kb">
@@ -290,6 +308,7 @@
                                             <outlet property="labelBusinessDistance" destination="zlV-Rg-wgj" id="B43-YN-7JN"/>
                                             <outlet property="labelBusinessName" destination="3hk-X7-Mwo" id="R3P-mu-cVg"/>
                                             <outlet property="labelBusinessReviews" destination="4Sg-No-LGx" id="nGU-Td-I0v"/>
+                                            <outlet property="labelFoodieLike" destination="xaE-3g-m5O" id="CVl-s2-KQ3"/>
                                             <outlet property="labelName" destination="A0G-XU-p81" id="unr-6v-KDs"/>
                                         </connections>
                                     </tableViewCell>
@@ -523,6 +542,7 @@
                         <outlet property="labelBusinessName" destination="RKb-ip-IZs" id="o7N-2c-xOr"/>
                         <outlet property="labelDistance" destination="FfF-qn-m0q" id="Qjk-yO-UZj"/>
                         <outlet property="labelFoodName" destination="Sus-Qe-GXd" id="bFT-f8-gpS"/>
+                        <outlet property="labelFoodieLikes" destination="IDH-9o-URT" id="LHJ-Ae-GeN"/>
                         <outlet property="labelReviews" destination="Xcw-G8-qYh" id="qw5-BL-K53"/>
                         <outlet property="mapView" destination="o3o-ak-5b8" id="cVN-lL-WiR"/>
                     </connections>

@@ -39,6 +39,10 @@
     NSArray *addresses = [food.business.locationInfo objectForKey:@"display_address"];
     [cell.labelBusinessAddress setText:[NSString stringWithFormat:@"%@, %@", addresses[0], addresses[1]]];
     
+    food.foodieLikes = [NSString stringWithFormat:@"%d likes",arc4random_uniform(500)];
+    [cell.labelFoodieLike setText:food.foodieLikes];
+    
+    
     [cell.labelName setText:food.name];
     
     return cell;

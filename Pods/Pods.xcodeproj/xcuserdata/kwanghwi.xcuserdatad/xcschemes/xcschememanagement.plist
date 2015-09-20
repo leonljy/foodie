@@ -54,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SlackTextViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>hpple.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,17 +67,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13EDC6479A957CC53F0AAD5C593A946F</key>
+		<key>1BE3ECF8FD63A89DDC2701EB29168174</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>146009C10778711C9B5CCD11A5898685</key>
+		<key>211A5C211F85D211613334809ECF1682</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3EFBD577AC9552DAF28F50032E43DAA0</key>
+		<key>43334FC336DF47138EFF55FFC00B28FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>504FD783317193C888CA8207CB236D18</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,17 +92,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>73993DF3A42A5BBE3856B96DA3134B24</key>
+		<key>53E2905C076A751BC1434DD7EBF45BEF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74EC69FB9BD8ABA882BB04DC891F9DCE</key>
+		<key>85A977AC190C0B2DB231A6757F6F8555</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9AB859260ABCA03AD81FF4DFB53E5C40</key>
+		<key>99328146B906B2E69AC918ED75DE34A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B9D5714EBF8E696EB040A51706432ABC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,17 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C860F71462E7B92A6A238B955E5E9EFC</key>
+		<key>E847B2F43727C9F661E220798DA6821E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CEDBE95CAE52C157523CEE94CB490CE5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F340BD81D5641A1C99004E63C7044E71</key>
+		<key>EEF4782EC000235EC5C127A64D0F6965</key>
 		<dict>
 			<key>primary</key>
 			<true/>

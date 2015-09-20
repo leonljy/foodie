@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelFoodName;
 @property (weak, nonatomic) IBOutlet UILabel *labelDistance;
 @property (weak, nonatomic) IBOutlet UILabel *labelReviews;
+@property (weak, nonatomic) IBOutlet UILabel *labelFoodieLikes;
 
 @end
 
@@ -41,6 +42,9 @@
     [_labelFoodName setText:_food.name];
     [_labelDistance setText:[NSString stringWithFormat:@"%.2lf mi",_food.business.distance]];
     [_labelReviews setText:[NSString stringWithFormat:@"%ld Reviews", _food.business.reviewCount]];
+    
+    [_labelFoodieLikes setText:_food.foodieLikes];
+    
     
     
     
@@ -90,7 +94,7 @@
 - (IBAction)handleGoWithFriends:(id)sender {
     [MMXUser findByDisplayName:@"J" limit:20 offset:0 success:^(int totalCount, NSArray *users) {
         NSLog(@"%@", users);
-        MMXMessage *message = [MMXMessage messageToRecipients:[NSSet setWithArray:users] messageContent:@{@"message": @"Hello"}];
+        MMXMessage *message = [MMXMessage messageToRecipients:[NSSet setWithArray:users] messageContent:@{@"message": @"Invite"}];
         [message sendWithSuccess:^{
             NSLog(@"Success");
         } failure:^(NSError *error) {

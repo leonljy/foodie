@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import <Parse/Parse.h>
-#import <MMX/MMX.h>
 
 @interface AppDelegate ()
 
@@ -55,7 +54,7 @@
         
     }];
     
-    MMXUser *currentUser = [MMXUser currentUser];
+    _currentUser = [MMXUser currentUser];
 
     return YES;
 }

@@ -84,6 +84,7 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
+  - SlackTextViewController (1.5.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.4)
@@ -91,6 +92,7 @@ DEPENDENCIES:
   - MDCSwipeToChoose
   - MMX
   - SDWebImage (~> 3.7)
+  - SlackTextViewController (= 1.5.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
@@ -103,5 +105,6 @@ SPEC CHECKSUMS:
   MMX: 97a54627972377cc12711d5870363061f079b698
   MMXXMPPFramework: 20ad9c176eac51ff190c361204876c6583347878
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  SlackTextViewController: ab240cda4c7fe1f70f6c6cf64578f3fea495ce99
 
 COCOAPODS: 0.38.2

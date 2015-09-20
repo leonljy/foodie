@@ -17,4 +17,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelBusinessDistance;
 @property (weak, nonatomic) IBOutlet UILabel *labelBusinessReviews;
 
+@property (weak, nonatomic) IBOutlet UILabel *labelFoodieLike;
 @end
